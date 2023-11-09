@@ -65,7 +65,7 @@ form.addEventListener('submit', (e) => {
     // $('addForm').innerHTML = ''
     $('id').focus()
 }
-    // resetForm()
+    resetForm()
     // SET FOCUS BACK TO THE ID TEXT BOX
 
     // INCREMENENT THE NUMBER OF EMPLOYEES IN THE TABLE

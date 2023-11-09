@@ -1,0 +1,21 @@
+.button {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    margin: .5em;
+}
+
+#button {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    margin: .5em;
+}
+
+#empCount {
+    color: gray;
+}
+
+.selectedRow:hover {
+    background-color: #aaa;
+}

@@ -1,12 +1,37 @@
 // DOM HANDLER FUNCTION
 const $ = (id) => document.getElementById(id)
 
+// Count Rows
+const rowCounter = (empCount) => {
+    rowCount = table.rows.length - 1
+    empCount.textContent = `(${rowCount})`
+}
+
+// DELETE EMPLOYEE
+const deleteBtn = (row) => {
+    if (confirm('Are you sure you want to delete this employee?') == true) {
+        let i = row.parentNode.parentNode.rowIndex
+        document.getElementById('employees').deleteRow(i)
+        rowCounter(empCount)
+        
+    } else {
+        // nothing
+    }
+}
+
+// RESET THE FORM
+const resetForm = () => {
+    $('addForm').reset()
+    $('id').focus()
+}
+
 // GET ADD EMPLOYEE FORM AND EMPLOYEE TABLE FROM THE DOM
-let form = document.getElementById('addForm')
-let table = document.getElementById('employees')
+// let form = document.getElementById('addForm')
+let form = $('addForm')
+let table = $('employees')
 
 // SET A COUNT VARIABLE TO DISPLAY NEXT TO EMPLOYEES HEADER
-let empCount = document.getElementById('empCount')
+let empCount = $('empCount')
 
 // ADD EMPLOYEE
 form.addEventListener('submit', (e) => {
@@ -58,36 +83,14 @@ form.addEventListener('submit', (e) => {
     
     // CREATE THE DELETE BUTTON
 
-    // RESET THE FORM
-    const resetForm = () => {
-    $('addForm').reset()
-    // $('addForm').innerHTML = ''
-    // $('addForm').innerHTML = ''
-    $('id').focus()
-}
+//     // RESET THE FORM
+//     const resetForm = () => {
+//     $('addForm').reset()
+//     $('id').focus()
+// }
     resetForm()
     // SET FOCUS BACK TO THE ID TEXT BOX
 
     // INCREMENENT THE NUMBER OF EMPLOYEES IN THE TABLE
-    rowCount = table.rows.length - 1
-    empCount.textContent = `(${rowCount})`
+    rowCounter(empCount)
 })
-
-// DELETE EMPLOYEE
-const deleteBtn = (row) => {
-    if (confirm('Are you sure you want to delete this employee?') == true) {
-        // deleteRow(e.target.path.rowIndex)
-        let i = row.parentNode.parentNode.rowIndex
-        document.getElementById('employees').deleteRow(i)
-        rowCount = table.rows.length - 1
-        empCount.textContent = `(${rowCount})`
-        
-    } else {
-        // nothing
-    }
-}
-// console.log($('employees').length)
-// if (table.rows.length >= 2) {
-//     console.log("More than 1 row!")
-//     let delBtn = getElementById('button') 
-// table.addEventListener('click', deleteBtn())

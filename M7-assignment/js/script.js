@@ -26,7 +26,6 @@ const resetForm = () => {
 }
 
 // GET ADD EMPLOYEE FORM AND EMPLOYEE TABLE FROM THE DOM
-// let form = document.getElementById('addForm')
 let form = $('addForm')
 let table = $('employees')
 
@@ -38,13 +37,12 @@ form.addEventListener('submit', (e) => {
     // PREVENT FORM SUBMISSION
     e.preventDefault();
     // COLLECT VALUES FROM FORM ELEMENTS
+    // GET THE VALUES FROM THE TEXT BOXES
     let empID = $('id').value
     let name = $('name').value
     let empExt = $('extension').value
     let email = $('email').value
     let dept = $('department').value
-
-    // GET THE VALUES FROM THE TEXT BOXES
 
     // INSERT A NEW ROW AT THE END OF THE EMPLOYEES TABLE
     let row = table.insertRow(-1)
@@ -81,15 +79,7 @@ form.addEventListener('submit', (e) => {
 
     table.appendChild(row)
     
-    // CREATE THE DELETE BUTTON
-
-//     // RESET THE FORM
-//     const resetForm = () => {
-//     $('addForm').reset()
-//     $('id').focus()
-// }
     resetForm()
-    // SET FOCUS BACK TO THE ID TEXT BOX
 
     // INCREMENENT THE NUMBER OF EMPLOYEES IN THE TABLE
     rowCounter(empCount)
